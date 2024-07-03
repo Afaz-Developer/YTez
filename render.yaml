@@ -1,0 +1,15 @@
+buildCommand: pip install -r requirements.txt
+startCommand: uvicorn main:app --host=0.0.0.0 --port=$PORT
+
+env:
+  - key: PACKAGE_MANAGER
+    value: "pip"
+  - key: PIP_INSTALL_ARGS
+    value: "--no-cache-dir --progress-bar off"
+  - key: PYTHONUNBUFFERED
+    value: "1"
+  - key: DEBIAN_FRONTEND
+    value: "noninteractive"
+
+packages:
+  - ffmpeg-full
